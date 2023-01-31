@@ -1,0 +1,8 @@
+---
+- name: Install Snap Store
+  become: yes
+  apt:
+    name: snapd
+    state: present
+  tags:
+    - snap

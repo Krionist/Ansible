@@ -1,0 +1,7 @@
+---
+- name: Change file ownership, group and permissions
+  file:
+    path: ~/www
+    state: directory
+  tags:
+    - folder

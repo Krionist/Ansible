@@ -1,0 +1,20 @@
+---
+    - name: Download Google Chrome
+      become: yes
+      get_url:
+        url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        dest: /tmp/google-chrome.deb
+    - name: Install requires
+      become: yes
+      apt:
+        name: fonts-liberation
+        state: present
+    - name: Install requires
+      become: yes
+      apt:
+        name: libu2f-udev
+        state: present
+    - name: Install Google Chrome
+      become: yes
+      shell: |
+        dpkg -i /tmp/google-chrome.deb

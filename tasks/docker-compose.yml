@@ -1,0 +1,17 @@
+- name: Install Docker Compose
+  become: yes
+  shell: sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  args:
+    creates: /usr/local/bin/docker-compose
+  register: result
+
+- name: Set execute permissions for Docker Compose
+  become: yes
+  shell: sudo chmod +x /usr/local/bin/docker-compose
+  when: result.changed
+
+- name: Test Docker Compose installation
+  become: no
+  command: docker-compose --version
+  register: result
+  failed_when: result.rc != 0

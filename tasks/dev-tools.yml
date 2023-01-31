@@ -1,0 +1,17 @@
+---
+- name: Install PhpStorm and Postman via Snap Store
+  become: yes
+  snap:
+    name: phpstorm
+    state: present
+  snap:
+    name: postman
+    state: present
+  snap:
+    name: slack
+    state: present
+  snap:
+    name: keepassxc
+    state: present
+  tags:
+    - snap
