@@ -1,0 +1,7 @@
+- name: Install xclip
+  become: yes
+  package:
+    name: xclip
+    state: present
+  tags:
+    - xclip

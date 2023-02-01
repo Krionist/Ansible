@@ -1,0 +1,7 @@
+- name: Install rofi
+  become: yes
+  package:
+    name: rofi
+    state: present
+  tags:
+    - rofi

@@ -1,0 +1,7 @@
+- name: Install diodon
+  become: yes
+  package:
+    name: diodon
+    state: present
+  tags:
+    - diodon

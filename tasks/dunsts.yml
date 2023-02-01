@@ -1,0 +1,33 @@
+    - name: Clone dunst repository
+      git:
+        repo: https://github.com/dunst-project/dunst.git
+        dest: /tmp/dunst
+      tags:
+        - dunsts
+    - name: Set PKG_CONFIG_PATH environment variable
+      shell: |
+        echo 'export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig' >> ~/.bashrc
+      tags:
+        - dunsts
+    - name: Install dependencies
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - libx11-dev
+        - libxinerama-dev
+        - libxrandr-dev
+        - libxss-dev
+        - libnotify-dev
+        - pkg-config
+        - libcairo2-dev
+        - libpango1.0-dev
+        - libnotify-bin
+      tags:
+        - dunsts
+    - name: Build and install dunst
+      command: make PREFIX=/usr/local install
+      args:
+        chdir: /tmp/dunst
+      tags:
+         - dunsts

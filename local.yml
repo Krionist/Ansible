@@ -10,3 +10,8 @@
      - include: tasks/docker-compose.yml
      - include: tasks/i3-gapps.yml
      - include: tasks/create_folder.yml
+     - include: tasks/polybar.yml
+     - include: tasks/xclip.yml
+     - include: tasks/rofi.yml
+     - include: tasks/diodon.yml
+     - include: tasks/dunsts.yml

@@ -1,0 +1,7 @@
+- name: Install polybar
+  become: yes
+  package:
+    name: polybar
+    state: present
+  tags :
+    - polybar
