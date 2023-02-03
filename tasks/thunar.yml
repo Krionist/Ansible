@@ -1,0 +1,7 @@
+- name: Install Thunar
+  become: yes
+  tags:
+    - thunar
+  apt:
+    name: thunar
+    state: present

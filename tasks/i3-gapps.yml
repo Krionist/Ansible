@@ -6,6 +6,8 @@
 
     - name: Install i3 Gaps dependencies
       become: yes
+      tags:
+        - i3-deps
       apt:
         name:
           - libxcb1-dev
@@ -25,4 +27,11 @@
           - i3
           - thunar
           - thunderbird
+          - jq
+          - vim
+          - rofi
+          - xdotool
+          - x11-xserver-utils
+          - indent
+          - libanyevent-i3-perl
         state: present

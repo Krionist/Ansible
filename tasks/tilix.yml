@@ -1,0 +1,6 @@
+- name: Install Tilix terminal emulator
+  become: yes
+  tags: tilix
+  apt:
+    name: tilix
+    state: present

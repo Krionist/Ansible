@@ -1,7 +1,55 @@
-- name: Install rofi
+- name: Install Autoconf
   become: yes
   package:
-    name: rofi
+    name: autoconf
     state: present
+  tags :
+    - rofi
+- name: Install Bison
+  become: yes
+  package:
+    name: bison
+    state: present
+  tags :
+    - rofi
+- name: Install Flex
+  become: yes
+  package:
+    name: flex
+    state: present
+  tags :
+    - rofi
+- name: Install XCB
+  become: yes
+  package:
+    name: libxcb-ewmh-dev
+    state: present
+  tags :
+    - rofi
+- name: Install Check
+  become: yes
+  package:
+    name: check
+    state: present
+  tags :
+    - rofi
+- name: Clone rofi repository from GitHub
+  become: yes
+  git:
+    repo: https://github.com/davatorium/rofi
+    dest: /opt/rofi
+    clone: yes
   tags:
     - rofi
+
+- name: Build and install rofi
+  become: yes
+  shell: |
+    cd /opt/rofi
+    autoreconf -i
+    ./configure
+    make
+    make install
+  tags:
+    - rofi
+

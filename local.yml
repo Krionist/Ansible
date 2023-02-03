@@ -15,3 +15,6 @@
      - include: tasks/rofi.yml
      - include: tasks/diodon.yml
      - include: tasks/dunsts.yml
+     - include: tasks/thunar.yml
+     - include: tasks/mpd.yml
+     - include: tasks/tilix.yml

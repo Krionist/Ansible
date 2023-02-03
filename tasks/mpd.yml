@@ -1,0 +1,8 @@
+---
+- name: Install MPD
+  tags:
+    - mpd
+  become: yes
+  apt:
+    name: mpd
+    state: present
